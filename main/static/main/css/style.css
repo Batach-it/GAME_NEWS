@@ -1,0 +1,376 @@
+/* ===========================
+   BODY AND GENERAL SETTINGS
+=========================== */
+body.dark-theme {
+    background-color: #0b0f25;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column; /* 🔥 важливо */
+}
+
+
+
+body.dark-theme .chat1 {
+    background-color: #51649d;
+    color: #e0e0e0;            /* світлий текст */
+    font-size: 25px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    width: 400px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+body.dark-theme .left-position{
+    justify-content: center; 
+    align-items: center;
+}
+
+/* ===========================
+   CONTAINER
+=========================== */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    padding: 25px 0;
+}
+
+
+footer {
+    width: 100%;
+    margin-top: auto;
+    height: 35px;
+    background-color: rgba(13, 110, 253, 0.85);
+    color: white;
+    
+    text-align: center;
+    padding: 15px;
+    
+    font-size: 14px;     /* ⬅ менший текст */
+    line-height: 1;    /* ⬅ компактніше */
+
+    backdrop-filter: blur(6px);
+}
+
+
+.footer-main{
+    margin-top: -5px;
+}
+
+/* ===========================
+   CARD STYLE
+=========================== */
+.card {
+    background: linear-gradient(135deg, #1c1c2e, #2a2a45);
+    padding: 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    max-width: 360px;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    margin-left: 10px;
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+}
+
+.card-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0;
+    color: #e0e0ff; /* світло-синій заголовок */
+}
+
+/* CARD BUTTONS */
+.card button {
+    background: linear-gradient(135deg, #3a86ff, #4361ee);
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    padding: 10px 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.card button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(67, 97, 238, 0.5);
+}
+
+/* LINKS */
+.card a {
+    color: #72b0ff;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.card a:hover {
+    color: #3a86ff;
+}
+
+/* ===========================
+   SETTINGS BUTTON (TOP LEFT)
+=========================== */
+.btn-primary.position-fixed {
+    position: fixed;
+    top: 20px;
+    right: 20px;   /* ✅ ЗПРАВА */
+    z-index: 10000;
+    background: linear-gradient(135deg, #3a86ff, #4361ee);
+    border: none;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(58, 134, 255, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-primary.position-fixed:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(58, 134, 255, 0.6);
+}
+
+/* ===========================
+   MODAL DARK MENU
+=========================== */
+.modal-content.dark-menu {
+    --bs-modal-bg: linear-gradient(180deg, #0b132b, #1c2541);
+    --bs-modal-color: #eaeaea;
+    --bs-modal-border-color: rgba(255, 255, 255, 0.05);
+    --bs-modal-header-border-color: rgba(255, 255, 255, 0.08);
+    background: var(--bs-modal-bg) !important;
+    color: var(--bs-modal-color) !important;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--bs-modal-border-color);
+}
+
+/* Modal Header */
+.dark-menu .modal-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Modal Body Items (Buttons/Text) */
+.modal-content.dark-menu button,
+.modal-content.dark-menu .menu-item {
+    background: rgba(58, 134, 255, 0.1);
+    color: #e0e0ff;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.modal-content.dark-menu button:hover,
+.modal-content.dark-menu .menu-item:hover {
+    background: rgba(58, 134, 255, 0.25);
+    transform: scale(1.05);
+}
+
+/* Close button white */
+
+
+/* ===========================
+   BOTTOM SLIDE ANIMATION
+=========================== */
+.bottom-modal .modal-dialog {
+    transform: translateY(100%);
+    transition: transform 0.45s cubic-bezier(.4,0,.2,1);
+}
+
+.bottom-modal.show .modal-dialog {
+    transform: translateY(0);
+}
+
+
+
+body.light-theme .card {
+    background: linear-gradient(135deg, #2f8c93, #2727a4);
+    color: #020305;
+}
+
+
+body.light-theme .btn-primary {
+    background: linear-gradient(135deg, #3a86ff, #4361ee);
+    color: #fff;
+}
+
+body.light-theme {
+    background-color: #f4f6fb;
+    color: #020305;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column; /* 🔥 ОБОВʼЯЗКОВО */
+}
+
+
+
+
+.white-text{
+    color: white;
+}
+
+
+.choose-file{
+    margin-left: 710px;
+    width: 170px;
+}
+
+
+
+
+
+body.light-theme .chat1 {
+    background-color: #51649d;
+    color: #e0e0e0;            /* світлий текст */
+    font-size: 25px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    width: 400px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+body.light-theme .left-position{
+    
+    justify-content: center; 
+    align-items: center;
+}
+
+
+.left-image{
+    margin-left: 80px;
+}
+
+
+
+footer {
+    width: 100%;
+    margin-top: auto;
+    height: 35px;
+    background-color: rgba(13, 110, 253, 0.85);
+    color: white;
+    
+    text-align: center;
+    padding: 15px;
+    
+    font-size: 14px;     /* ⬅ менший текст */
+    line-height: 1;    /* ⬅ компактніше */
+
+    backdrop-filter: blur(6px);
+}
+
+
+.footer-main{
+    margin-top: -5px;
+}
+
+
+
+
+
+.galindo-regular {
+  font-family: "Galindo", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+@media (max-width: 768px) {
+    footer {
+        font-size: 12px;
+        padding: 4px 6px;
+    }
+}
+
+
+
+/* Центрування блоку */
+.center-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* Основний блок статті */
+.article-block {
+    max-width: 720px;
+    width: 100%;
+    background: linear-gradient(135deg, #1c1c2e, #2a2a45);
+    border-radius: 20px;
+    padding: 25px 30px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Header */
+.article-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+/* Назва */
+.article-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
+    max-width: 75%;
+}
+
+/* Автор + час справа */
+.article-meta {
+    text-align: right;
+    font-size: 13px;
+    opacity: 0.8;
+    white-space: nowrap;
+}
+
+.article-author {
+    font-weight: 600;
+}
+
+/* Контент */
+.article-content {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Light theme адаптація */
+body.light-theme .article-block {
+    background: linear-gradient(135deg, #e6f0ff, #f4f7ff);
+    color: #020305;
+}

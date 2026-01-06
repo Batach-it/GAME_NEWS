@@ -1,0 +1,42 @@
+{% extends "main/html/home_page.html" %}
+{% load static %}
+
+{% block title %}User Profile{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="card">
+        <h1 class="card-title mb-3">User Profile</h1>
+
+        {% if profile.avatar %}
+            <img src="{{ profile.avatar.url }}" alt="Аватар" class="left-image" width="150">
+        {% else %}
+            <p class="white-text">No Photo</p>
+        {% endif %}
+
+        <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+        
+
+        
+            <!-- прихований input -->
+            <input type="file" name="avatar" id="{{ form.avatar.id_for_label }}" class="d-none"
+                   onchange="document.getElementById('file-name').innerText = this.files[0].name">
+
+            <!-- кнопка для відкриття файлового діалогу -->
+            <button type="button" class="btn btn-primary" onclick="document.getElementById('{{ form.avatar.id_for_label }}').click()">
+                Choose File
+            </button>
+
+          
+        </div>
+
+
+    <button type="submit" class="btn btn-success mt-3">Upload Photo</button>
+</form>
+
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "main/html/home_page.html" %}
+{% load static %}
+
+{% block title %}Fortnite Чати{% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-5" style="max-width: 420px; width: 100%;">
+        <div class="card-body">
+            <h2 class="white-text">Login</h2>
+
+            {% if form.non_field_errors %}
+                <div>
+                    <span style="color: red; font-weight: 500;">
+                        {{ form.non_field_errors|striptags }}
+                    </span>
+                </div>
+            {% endif %}
+
+            <form method="post">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label for="{{ form.username.id_for_label }}" style="color: white; font-weight: 500;">
+                        {{ form.username.label }}
+                    </label>
+                    {{ form.username }}
+                    {% if form.username.errors %}
+                        <div class="text-danger">
+                            {{ form.username.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    <label for="{{ form.password.id_for_label }}" style="color: white; font-weight: 500;">
+                        {{ form.password.label }}
+                    </label>
+                    {{ form.password }}
+                    {% if form.password.errors %}
+                        <div class="text-danger">
+                            {{ form.password.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3">
+                    Log In
+                </button>
+            </form>
+
+            <p class="form-text mt-3" style="text-align:center; color: white;">
+                Don’t have an account?
+                <a href="{% url 'register' %}" class="text-decoration-none" style="color: #0d6efd !important;">
+                    Register
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

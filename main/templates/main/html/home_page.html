@@ -1,0 +1,123 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Game news{% endblock %}</title>
+
+    <!-- Підключення твого CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Galindo&family=Momo+Signature&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+
+
+
+{% if not hide_logo %}
+<a href="/">
+    <img src="{% static 'main/css/logo.png' %}" class="position-fixed top-0 start-0 m-3"
+         style="width: 100px; z-index: 9999; border-radius: 10px;">
+</a>
+{% endif %}
+
+
+
+
+  <div class="container">
+      {% block content %}
+      
+      <div class="card">
+          <a href="/CS2_news"><h1 class="card-title">CS:2</h1></a>
+      </div>
+
+      <div class="card">
+          <a href="/rust_news"><h1 class="card-title">Rust</h1></a>
+      </div>
+
+      <div class="card">
+          <a href="minecraft_news"><h1 class="card-title">Minecraft</h1></a>
+      </div>
+
+      <div class="card">
+          <a href="fortnite_news"><h1 class="card-title">Fortnite</h1></a>
+      </div>
+      
+  </div>
+
+
+
+
+ <button 
+  class="btn btn-primary position-fixed"
+  data-bs-toggle="modal"
+  data-bs-target="#bottomMenu">
+  Settings
+</button>
+
+
+
+
+{% endblock %}
+
+
+  <div class="modal fade bottom-modal" id="bottomMenu" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content dark-menu text-center">
+        <div class="modal-header">
+          <h5 class="modal-title galindo-regular">Menu</h5>
+          
+        </div>
+
+        <div class="modal-body">
+          <form method="post" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <a href=""><button type="submit" style="width: 140px;">Exit</button></a>
+          </form>
+
+          <div class="modal-body">
+              <button class="menu-item" onclick="toggleTheme()" style="width: 140px;">Other Theme</button>
+          </div>
+          <a href="{% url 'profile' %}"><button style="width: 140px;">Profile</button></a>
+        </div>
+        
+          <a href="{% url 'portfolio' %}"><button style="width: 140px;">About me</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Перевірка на збережену тему
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.body.className = savedTheme;
+        }
+    });
+
+    function toggleTheme() {
+        const body = document.body;
+        if (body.classList.contains('dark-theme')) {
+            body.classList.remove('dark-theme');
+            body.classList.add('light-theme');
+            localStorage.setItem('theme', 'light-theme');
+        } else {
+            body.classList.remove('light-theme');
+            body.classList.add('dark-theme');
+            localStorage.setItem('theme', 'dark-theme');
+        }
+    }
+  </script>
+
+  <footer class="py-3 mt-auto">
+    <div class="footer-main">© 2025-2026 BH Website Creation Software — All Rights Reserved</div>
+  </footer>
+
+</body>
+</html>

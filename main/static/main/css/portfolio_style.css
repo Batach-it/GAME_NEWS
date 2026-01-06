@@ -1,0 +1,151 @@
+/* Базові стилі */
+body {
+  background: linear-gradient(180deg, #22242a 0%, #14161b 40%, #0a0b0d 100%);
+  background-attachment: fixed;
+  color: #f1f1f1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+header, footer, .content, .sidebar {
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+}
+
+header, footer {
+  background-color: rgba(13, 110, 253, 0.8);
+}
+
+.btn-dark-blue {
+  background-color: #0b2348;
+  border-color: #0b2348;
+  color: #ffffff;
+  font-weight: 500;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  white-space: nowrap;
+  width: 100%;
+  max-width: 415px;
+  text-align: center;
+  padding: 12px 0;
+}
+
+.btn-dark-blue:hover {
+  background-color: #13336b;
+  border-color: #13336b;
+  transform: scale(1.05);
+}
+
+.beautiful-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 0 0 12px rgba(66, 165, 245, 0.6);
+  margin-bottom: 15px;
+}
+
+/* 🟢 Flexbox для картинок і контактів */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* відстань між елементами */
+  padding: 20px;
+}
+
+.sicrle_image {
+  width: 50px;   
+  height: 50px;
+  border-radius: 50%;
+  margin: 0; /* margin більше не потрібен */
+}
+
+.contact-text,
+.number-class,
+.number-class2 {
+  text-align: center;
+  margin: 5px 0;
+}
+
+/* Для адаптивності */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .content, .sidebar {
+    width: 100%;
+  }
+}
+
+
+.certificate_image {
+  width: 100%;          /* Картинка займає всю ширину батьківського блоку */
+  max-width: 450px;     /* Максимальна ширина — як зараз */
+  height: auto;         /* Висота підлаштовується пропорційно */
+  margin-top: 55px;
+  border-radius: 10px;
+  display: block;       /* Щоб margin працював нормально */
+}
+
+
+
+.text-info2 {
+  font-size: 50px;
+  margin-left: 20px;
+  color: rgb(0, 183, 255);
+  text-align: center;
+  font-family: "Chewy", system-ui;
+
+  text-shadow: 2px 2px 8px rgba(232, 232, 232, 0.6); 
+}
+
+
+h2{
+  font-size: 20px;
+  margin-left: 20px;
+  color: rgb(0, 183, 255);
+  text-align: center;
+  font-family: "Chewy", system-ui;
+  font-style: italic;
+  text-shadow: 4px 4px 8px rgba(101, 235, 115, 0.6); 
+}
+
+
+.about-me{
+  text-align: center;
+  background-color: white;
+  color: black;
+  max-height: 600px;
+  max-width: 200px; 
+  padding: 5px;           
+  border-radius: 10px;
+}
+
+
+.about-me2{
+  text-align: center;
+  background-color: white;
+  color: black;
+  max-height: 600px;
+  max-width: 400px;
+  padding: 5px;           
+  border-radius: 10px;
+}
+
+.about-me3{
+  text-align: center;
+  background-color: white;
+  color: black;
+  max-height: 600px;
+  max-width: 230px;
+  padding: 5px;           
+  border-radius: 10px;
+}
